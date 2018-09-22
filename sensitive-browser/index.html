@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sensitive Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid mt-3">
+    <nav class="nav nav-pills flex-column flex-sm-row mb-3">
+      <a class="nav-link active" id="pills-gps-tab" data-toggle="pill" href="#pills-gps" role="tab" aria-controls="pills-gps"
+        aria-selected="true">GPS</a>
+      <a class="nav-link" id="pills-gyroscope-tab" data-toggle="pill" href="#pills-gyroscope" role="tab" aria-controls="pills-gyroscope"
+      aria-selected="false">Giroscopio</a>
+      <a class="nav-link" id="pills-accelerometer-tab" data-toggle="pill" href="#pills-accelerometer" role="tab"
+      aria-controls="pills-accelerometer" aria-selected="false">Acelerómetro</a>
+      <a class="nav-link" id="pills-camera-tab" data-toggle="pill" href="#pills-camera" role="tab" aria-controls="pills-camera"
+      aria-selected="false">Cámara</a>
+      <a class="nav-link" id="pills-vibrator-tab" data-toggle="pill" href="#pills-vibrator" role="tab" aria-controls="pills-vibrator"
+      aria-selected="false">Vibrador</a>
+      <a class="nav-link" id="pills-light-tab" data-toggle="pill" href="#pills-light" role="tab" aria-controls="pills-light"
+      aria-selected="false">Luz</a>
+      <a class="nav-link" id="pills-battery-tab" data-toggle="pill" href="#pills-battery" role="tab" aria-controls="pills-battery"
+      aria-selected="false">Bateria</a>
+      <a class="nav-link" id="pills-proximity-tab" data-toggle="pill" href="#pills-proximity" role="tab"
+      aria-controls="pills-proximity" aria-selected="false">Proximidad</a>
+    </nav>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-gps" role="tabpanel" aria-labelledby="pills-gps-tab">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Latitud</th>
+              <th scope="col">Longitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="gps-latitude"></td>
+              <td id="gps-longitude"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <iframe id="gps-map" width="325" height="280" frameborder="0" src="https://www.bing.com/maps/embed?h=280&w=325&lvl=10&typ=s&sty=r&src=SHELL&FORM=MBEDV8&cp="
+          scrolling="no"></iframe>
+      </div>
+
+      <div class="tab-pane fade" id="pills-gyroscope" role="tabpanel" aria-labelledby="pills-gyroscope-tab">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Alfa</th>
+              <th scope="col">Beta</th>
+              <th scope="col">Gama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="gyroscope-alpha"></td>
+              <td id="gyroscope-beta"></td>
+              <td id="gyroscope-gamma"></td>
+            </tr>
+          </tbody>
+        </table>
+        <img class="img-fluid" src="https://mobiforge.com/files/javascript_sensors_yaw.jpg">
+      </div>
+
+      <div class="tab-pane fade" id="pills-accelerometer" role="tabpanel" aria-labelledby="pills-accelerometer-tab">
+        <p>Aceleración sin gravedad</p>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">X</th>
+              <th scope="col">Y</th>
+              <th scope="col">Z</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="accelerometer-x"></td>
+              <td id="accelerometer-y"></td>
+              <td id="accelerometer-z"></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Aceleración con gravedad</p>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">X</th>
+              <th scope="col">Y</th>
+              <th scope="col">Z</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="accelerometer-gravity-x"></td>
+              <td id="accelerometer-gravity-y"></td>
+              <td id="accelerometer-gravity-z"></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Aceleración rotacional</p>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Alfa</th>
+              <th scope="col">Beta</th>
+              <th scope="col">Gama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="accelerometer-rotation-alpha"></td>
+              <td id="accelerometer-rotation-beta"></td>
+              <td id="accelerometer-rotation-gamma"></td>
+            </tr>
+          </tbody>
+        </table>
+        <img class="img-fluid" src="https://mobiforge.com/files/javascript_sensors_yaw.jpg">
+      </div>
+
+      <div class="tab-pane fade" id="pills-camera" role="tabpanel" aria-labelledby="pills-camera-tab">
+        <video id="camera-video" width="320" height="240" autoplay>
+          <source type="video/mp4">
+        </video>
+      </div>
+
+      <div class="tab-pane fade" id="pills-vibrator" role="tabpanel" aria-labelledby="pills-vibrator-tab">
+        <button id="vibrator-1second" type="button" class="btn btn-success btn-sm">Vibrar 1 segundo</button>
+        <button id="vibrator-sequence" type="button" class="btn btn-success btn-sm">Vibrar en secuencia</button>
+      </div>
+      <div class="tab-pane fade" id="pills-light" role="tabpanel" aria-labelledby="pills-light-tab">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Intensidad</th>
+              <th scope="col">Nivel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="light-value"></td>
+              <td id="light-level"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="pills-battery" role="tabpanel" aria-labelledby="pills-battery-tab">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Carga actual</th>
+              <th scope="col">Cargando</th>
+              <th scope="col">Tiempo de carga</th>
+              <th scope="col">Tiempo de descarga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="battery-level"></td>
+              <td id="battery-charging"></td>
+              <td id="battery-charge-time"></td>
+              <td id="battery-discharge-time"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="pills-proximity" role="tabpanel" aria-labelledby="pills-proximity-tab">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Distancia mínima</th>
+              <th scope="col">Distancia máxima</th>
+              <th scope="col">Distancia actual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="proximity-min"></td>
+              <td id="proximity-max"></td>
+              <td id="proximity-value"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
